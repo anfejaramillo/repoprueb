@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titulo de la pestaña</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="sttilos.css">
+    <script src="scripting.js"></script>
+    <script>
+        window.onload = initialize;
+        // function(){
+        //     initialize();
+        // };
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled">Disabled</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" action="index2.html" method="GET">
+                        <input class="form-control me-2" name="campobusqueda" type="search" placeholder="Search"
+                            aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container m-3 mt-5 pt-5 p-3" style="height: auto !important;">
+        <h2>Qué podemos hacer con JavaScript?</h2>
+        <p>JavaScript puede cambiar los atributos en HTML.</p>
+        <p>En este ejemplo cambiamos el valor de src en img, teniendo en la
+            misma carpeta 2 imagenes, un zapato rojo y un zapato negro</p>
+
+        <button id="zapatoRojo">
+            Zapato rojo
+        </button>
+
+        <img id="myImage" src="zapatoRojo.png" style="width:100px">
+
+        <button id="zapatoNegro">
+            Zapato negro
+        </button>
+        <h1 id="idh1">
+            texto h1
+        </h1>
+        <div class="m-3 p-3 border border-5 rounded">
+            <h1>Texto a trabajar</h1>
+            <p id="idp" class="border border-3 p-3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Hic sit non illo fuga voluptatibus qui vitae laudantium
+                laborum consequuntur cupiditate, esse eius ipsa minus
+                reprehenderit ullam fugiat aspernatur suscipit illum.
+            </p>
+            <div class="d-flex justify-content-center">
+                <div class="btn-group ">
+                    <button id="btnMostrar" class="btn btn-outline-success">Mostrar texto</button>
+                    <button id="btnOcultar" class="btn btn-outline-info">Ocultar texto</button>
+                    <button id="btnEliminar" class="btn btn-danger">Eliminar Texto</button>
+                </div>
+            </div>
+            <br />
+            <div class="d-flex justify-content-center">
+                <button id="insHtml" class="btn btn-outline-warning my-3"> Insertar Html</button>
+            </div>
+        </div>
+    </div>
+    <div class="container m-3 mt-5 pt-5 p-3">
+        <button class="btn btn-info" onclick="this.innerHTML=new Date()">
+            Da clic para conocer la hora?
+        </button>
+    </div>
+    <div class="container m-3 mt-5 pt-5 p-3" id="contenedorEjemplo">
+        <script>
+            let contenedor = document.getElementById("contenedorEjemplo");
+            let ul = document.createElement("ul"); //<ul></ul>
+            ul.classList.add('bg-light');//<ul class="bg-light"></ul>
+            ul.classList.add('shadow');//<ul class="bg-light shadow"></ul>
+            ul.onclick = function () {
+                alert('Se clickeo el elmento UL')
+            };//<ul class="bg-light shadow" onclick="alert('Se clickeo el elmento UL')"></ul>}
+            function hide(e) {
+                e.target.style.visibility = "hidden";
+            }
+            ul.addEventListener("click", hide, false);
+            let li1 = document.createElement("li");//<li></li>
+            li1.innerHTML = "item #1 de lista"; //<li>item #1 de lista</li>
+            let li2 = document.createElement("li");//<li></li>
+            li2.innerHTML = "<a href='https://www.google.com.co' class='btn btn-warning'>"
+                + " Link a Google</a> item #2 de lista"
+            //<li><a href='www.google.com.co' class='btn btn-warning'>
+            //Link a Google</a> item #2 de lista</li>
+            ul.appendChild(li1);
+            ul.appendChild(li2);
+            contenedor.appendChild(ul);
+        </script>
+    </div>
+    <div class="container m-3 mt-5 pt-5 p-3">
+        <p id="listaP1"></p>
+        <script>
+            let productos = ["Granos", "Verduras", "Lácteos", "Aseo", "Carnes",
+                "Mecato"];
+            let text = "";
+            let i;
+            for (i = 0; i < productos.length; i++) {
+                text = text + "<button class='btn btn-outline-danger mx-3' onclick='alert(this.innerHTML)'>" +
+                    productos[i] + "</button>";
+            }
+            console.log(text);
+            document.getElementById("listaP1").innerHTML = text;
+        </script>
+    </div>
+    <div class="container m-3 mt-5 pt-5 p-3">
+        <button class="btn btn-dark" onclick="lanzarPromesa()">Lanzar promesa</button>
+        <script>
+            function timerr(length) {
+                return new Promise(
+                    function (resolve, reject) {
+                        console.log('Inicio de la promesa');
+                        try {
+                            setTimeout(
+                                function () {
+                                    resolve();
+                                    console.log('Finalizó el tiempo');
+                                },
+
+                                length
+                            );
+                        } catch {
+                            console.log("Error in asynchronous request");
+                            reject();
+                        }
+                    }
+                );
+            };
+
+            function lanzarPromesa() {
+                timerr(4000).then(
+                    () => {
+                        alert('Todo terminó')
+                    },
+                    () => {
+                        alert("Error en la ejecucion asincrona")
+                    }
+                );
+            }
+        </script>
+    </div>
+    <div class="container m-3 mt-5 pt-5 p-3">
+        <script>
+            class Producto {
+                constructor(nombre, cantidad) {
+                    this.nombre = nombre;
+                    this.cantidad = cantidad;
+                }
+                static logearConsola(mensaje) {
+                    console.log("El mensaje es: " + mensaje)
+                }
+                mostrarProducto() {
+                    alert("Nombre Producto: " + this.nombre + "\n"
+                        + "Cantidad Producto: " + this.cantidad)
+                }
+            }
+            let varFunction = function () {
+                console.log("Soy una funcion dentro de una variable. " + this.nombre);
+            }
+            Producto.prototype.propiedad2 = 19;
+            Producto.prototype.funcionDeObjeto = varFunction;
+            let listObjProd = [];
+            listObjProd.push(new Producto("Zapatos Rojos", 12));
+            listObjProd.push(new Producto("Lavadora", 5));
+            listObjProd.push(new Producto("Juguete MaxSteel", 9));
+            listObjProd[2].mostrarProducto();
+            listObjProd[1].funcionDeObjeto();
+            Producto.logearConsola("Mensaje de prueba");
+            console.log(listObjProd);
+            class ProductoCanastaFamiliar extends Producto {
+                constructor(margenGanancia, iva, nombre, cantidad) {
+                    super(nombre, cantidad);
+                    this.margenGanancia = margenGanancia;
+                    this.iva = iva;
+                }
+                mostrarProductoCanastaFamiliar(){
+                    console.log(
+                        "Margen Ganacia: " + this.margenGanancia + "\n" +
+                        "iva : " + this["iva"]
+                    )
+                }
+            }
+            let pCF = new ProductoCanastaFamiliar(0.18, true, "Aceite", 19);
+        </script>
+    </div>
+
+    <script>
+        function nombrefuncion(par1, par2, par3) {
+            alert("Los valores de los parametros son: " +
+                par1 + " - " +
+                par2 + " - " +
+                par3 + " - "
+            )
+        }
+        let variableFuncion = nombrefuncion;
+        variableFuncion(1, 2, 3);
+        nombrefuncion(
+            {
+                "clave1": 468,
+                "clave2": 'cadena dentro de diccionario',
+                "clave3": 419.458656,
+            },
+            'esto es una cadena',
+            [
+                'cadena dentro de lista', 223
+            ]
+        );
+        //expresiones lambda/funciones anonimas/funciones flecha
+        let funcionFlecha = (par1, par2) => {
+            alert("los parametros son: " + par1 + " - " + par2)
+        }
+        funcionFlecha('valor 1', ['cadena', 90.99])
+    </script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
